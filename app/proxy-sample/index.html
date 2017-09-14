@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>jQuery TIPS</title>
+</head>
+<body>
+<form>
+    <input type="button" id="btn" value="実行" />
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(function() {
+        var $obj = {
+            name: '山田理沙',
+            address: '青森県小金井市大津9-78-423',
+            toString: function() {
+                console.log(this.name + '::' + this.address);
+            }
+        };
+
+        // clickイベントリスナーとして、obj.toStringメソッドを登録
+        $('#btn').click($.proxy($obj.toString, $obj));
+    });
+</script>
+</body>
+</html>
